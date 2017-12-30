@@ -32,7 +32,8 @@
     1. 功能:註冊帳號、第三方登錄、修改個人基本資料、權限區分
     2. 實作方式:[Nestjs](https://nestjs.com/)後端產Restful API給[Angular](https://angular.io/)前端串接，前後端皆要做好Route與權限保護，使用[JWT Token](https://jwt.io/)做網站驗證保護。
 * 比特幣新聞
-    1. 正式資源: 
+    1. 正式資源:
+    
                https://chroniclingamerica.loc.gov/about/api/ 
                https://github.com/feedbin/feedbin-api 
                https://developer.nytimes.com/ 
