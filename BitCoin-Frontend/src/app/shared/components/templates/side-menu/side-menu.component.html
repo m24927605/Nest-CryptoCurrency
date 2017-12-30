@@ -1,0 +1,25 @@
+<ul nz-menu [nzMode]="'inline'" style="height:100%">
+  <li nz-submenu>
+    <span title>
+      <i class="anticon anticon-star"></i>比特幣</span>
+    <ul>
+      <li nz-menu-item [routerLink]="['/bitcoin/currentPrice']">即時報價</li>
+      <li nz-menu-item [routerLink]="['/bitcoin/historyPrice']">歷史報價</li>
+    </ul>
+  </li>
+  <li nz-submenu>
+    <span title>
+      <i class="anticon anticon-user-add"></i>會員管理</span>
+    <ul>
+      <li nz-menu-item [routerLink]="['/manage/personDetail']">修改個人資料</li>
+      <li nz-menu-item [routerLink]="['/manage/changePassword']">修改密碼</li>
+    </ul>
+  </li>
+  <li nz-submenu>
+    <span title>
+      <i class="anticon anticon-setting"></i>系統設定</span>
+    <ul>
+      <li nz-menu-item (click)="logout()">登出</li>
+    </ul>
+  </li>
+</ul>
