@@ -1,13 +1,9 @@
 'use strict';
 
-export interface IUsers {
+export interface IRoles {
     readonly ID: number;
-    readonly RoleID: number;
     readonly Name: string
-    readonly Birthday: Date
-    readonly Email: string
-    readonly OtherEmail: string
-    readonly Phone: string
+    readonly Status: number
     readonly CreateTime: Date
     readonly CreateUser: string
     readonly ModifiedTime: Date

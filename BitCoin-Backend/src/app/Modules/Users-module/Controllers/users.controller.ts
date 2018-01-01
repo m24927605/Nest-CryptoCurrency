@@ -2,23 +2,21 @@
 
 import { Controller, Get, Response, HttpStatus, Param, Body, Post, Request, Patch, Delete } from '@nestjs/common';
 import { UsersServices } from '../Services/users.service';
-import { CreateUsersDTO } from '../DTO/createUsers.dto';
-import { ApiUseTags, ApiResponse } from '@nestjs/swagger';
+import { UsersDTO } from '../DTO/index';
+import * as moment from 'moment';
 
-//swagger服務要顯示的項目名稱
-//@ApiUseTags('users')
-@Controller()
+@Controller('users')
 export class UsersController {
 
     constructor(private readonly usersServices: UsersServices) { }
 
-    @Get('users')
+    @Get()
     public async getUsers( @Response() res) {
         const users = await this.usersServices.findAll();
         return res.status(HttpStatus.OK).json(users);
     }
 
-    @Get('users/find')
+    @Get('/find')
     public async findUser( @Response() res) {
         //給定where條件
         let queryCondition = { where: { Name: 'Mary' } };
@@ -26,30 +24,30 @@ export class UsersController {
         return res.status(HttpStatus.OK).json(users);
     }
 
-    @Get('users/:id')
+    @Get('/:ID')
     public async getUser( @Response() res, @Param() param) {
 
         const users = await this.usersServices.findById(param.id);
         return res.status(HttpStatus.OK).json(users);
     }
 
-    @Post('users')
-    @ApiResponse({ status: 201, description: 'The record has been successfully created.' })
-    @ApiResponse({ status: 403, description: 'Forbidden.' })
-    public async createUser( @Response() res, @Body() createUsersDTO: CreateUsersDTO) {
-
-        const users = await this.usersServices.create(createUsersDTO);
-        return res.status(HttpStatus.OK).json(createUsersDTO);
-    }
-
-    @Patch('users/:ID')
-    public async updateUser( @Param() param, @Response() res, @Body() body) {
-
-        const users = await this.usersServices.update(param.ID, body);
+    @Post()
+    public async createUser( @Response() res, @Body() usersDTO: UsersDTO) {
+        usersDTO.CreateTime =moment().toDate();
+        usersDTO.CreateUser = 'sa';
+        const users = await this.usersServices.create(usersDTO);
         return res.status(HttpStatus.OK).json(users);
     }
 
-    @Delete('users/:ID')
+    @Patch('/:ID')
+    public async updateUser( @Param() param, @Response() res, @Body() usersDTO: UsersDTO) {
+        usersDTO.ModifiedTime=moment().toDate();
+        usersDTO.CreateUser = 'sa';
+        const users = await this.usersServices.update(param.ID, usersDTO);
+        return res.status(HttpStatus.OK).json(users);
+    }
+
+    @Delete('/:ID')
     public async deleteUser( @Param() param, @Response() res) {
 
         const users = await this.usersServices.delete(param.ID);
