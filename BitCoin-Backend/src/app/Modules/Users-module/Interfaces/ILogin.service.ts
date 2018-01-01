@@ -7,7 +7,7 @@ export interface ILoginService {
     findAll(): Promise<Array<Login>>;
     findById(ID: number): Promise<Login | null>;
     findOne(options: Object): Promise<Login | null>;
-    create(roles: ILogin): Promise<Login>;
+    create(login: ILogin): Promise<Login>;
     update(ID: number, newValue: ILogin): Promise<Login | null>;
     delete(ID: number): Promise<number>;
 }

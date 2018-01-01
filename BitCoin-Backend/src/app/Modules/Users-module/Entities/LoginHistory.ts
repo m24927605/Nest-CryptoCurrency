@@ -2,7 +2,7 @@
 
 import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, JoinColumn} from "typeorm";
 
-@Entity()
+@Entity('LoginHistory')
 export class LoginHistory {
 
 
@@ -14,11 +14,10 @@ export class LoginHistory {
     ID:number;
         
 
-    @Column("varchar",{ 
+    @Column("int",{ 
         nullable:false,
-        length:50, 
         })
-    UserID:string;
+    UserID:number;
         
 
     @Column("datetime",{ 

@@ -8,3 +8,5 @@ export * from './IFeatures';
 export * from './IFeatures.service';
 export * from './ILogin';
 export * from './ILogin.service';
+export * from './ILoginHistory';
+export * from './ILoginHistory.service';

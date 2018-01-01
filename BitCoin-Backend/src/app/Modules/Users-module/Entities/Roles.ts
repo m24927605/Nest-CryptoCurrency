@@ -2,7 +2,7 @@
 
 import {Index,Entity, PrimaryColumn, Column, OneToOne, OneToMany, ManyToOne, JoinColumn} from "typeorm";
 
-@Entity()
+@Entity('Roles')
 export class Roles {
 
 
