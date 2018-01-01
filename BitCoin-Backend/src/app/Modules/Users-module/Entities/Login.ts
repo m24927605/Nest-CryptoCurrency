@@ -31,7 +31,7 @@ export class Login {
         nullable:false,
         length:100, 
         })
-    Passowrd:string;
+    Password:string;
         
 
     @Column("smallint",{ 

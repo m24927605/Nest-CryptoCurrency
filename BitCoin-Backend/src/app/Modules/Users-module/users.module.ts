@@ -3,19 +3,18 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../../Modules/Users-module/Database/database.module';
 import { UsersProviders } from '../Users-module/Providers/users.providers';
-import { UsersController } from './Controllers/users.controller';
-import { RolesController } from './Controllers/roles.controller';
-import { FeaturesController } from './Controllers/features.controller';
-import { RolesService,FeaturesSerice,UsersServices } from './Services/index';
+import { UsersController,RolesController,FeaturesController, LoginController } from './Controllers/index';
+import { RolesService,FeaturesSerice,UsersServices, LoginsService } from './Services/index';
 
 
 @Module({
     modules: [DatabaseModule],
-    controllers: [UsersController, RolesController, FeaturesController],
+    controllers: [UsersController, RolesController, FeaturesController,LoginController],
     components: [
         UsersServices,
         RolesService,
         FeaturesSerice,
+        LoginsService,
         ...UsersProviders
     ]
 })
