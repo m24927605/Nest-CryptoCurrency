@@ -27,7 +27,7 @@ export class LoginHistoryController {
     @Get('/:ID')
     public async getRole( @Response() res, @Param() param) {
 
-        const loginHistory = await this.loginHistoryService.findById(param.id);
+        const loginHistory = await this.loginHistoryService.findById(param.ID);
         return res.status(HttpStatus.OK).json(loginHistory);
     }
 

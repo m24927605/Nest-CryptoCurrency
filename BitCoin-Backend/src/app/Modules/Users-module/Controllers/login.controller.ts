@@ -27,7 +27,7 @@ export class LoginController {
     @Get('/:ID')
     public async getRole( @Response() res, @Param() param) {
 
-        const login = await this.loginSerice.findById(param.id);
+        const login = await this.loginSerice.findById(param.ID);
         return res.status(HttpStatus.OK).json(login);
     }
 

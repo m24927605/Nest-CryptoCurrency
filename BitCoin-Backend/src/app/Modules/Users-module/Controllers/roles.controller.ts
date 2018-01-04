@@ -27,7 +27,7 @@ export class RolesController {
     @Get('/:ID')
     public async getRole( @Response() res, @Param() param) {
 
-        const roles = await this.rolesService.findById(param.id);
+        const roles = await this.rolesService.findById(param.ID);
         return res.status(HttpStatus.OK).json(roles);
     }
 

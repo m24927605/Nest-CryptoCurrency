@@ -27,7 +27,7 @@ export class UsersController {
     @Get('/:ID')
     public async getUser( @Response() res, @Param() param) {
 
-        const users = await this.usersServices.findById(param.id);
+        const users = await this.usersServices.findById(param.ID);
         return res.status(HttpStatus.OK).json(users);
     }
 

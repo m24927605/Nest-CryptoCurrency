@@ -27,7 +27,7 @@ export class FeaturesController {
     @Get('/:ID')
     public async getRole( @Response() res, @Param() param) {
 
-        const features = await this.featuresSerice.findById(param.id);
+        const features = await this.featuresSerice.findById(param.ID);
         return res.status(HttpStatus.OK).json(features);
     }
 
